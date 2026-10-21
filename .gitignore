@@ -1,0 +1,29 @@
+# Build products and local tools
+/target/
+/.tools
+/.cache/
+/.snfoundry_cache/
+/.snforge_cache/
+__pycache__/
+*.pyc
+*.trace
+*.prof
+.DS_Store
+
+# Credentials and developer-local configuration
+/.secrets/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+/.agents/
+/.codex/
+
+# Deployment output is local; publish only curated metadata and ABI.
+/deployments/*
+!/deployments/sepolia.json
+!/deployments/sepolia.abi.json
+
+# Local pre-publication backups
+/.local/

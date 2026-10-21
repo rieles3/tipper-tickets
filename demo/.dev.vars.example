@@ -1,0 +1,4 @@
+# Copy to .dev.vars and supply a dedicated, funded Sepolia account.
+STARKNET_RPC_URL=https://starknet-sepolia-rpc.publicnode.com
+DEMO_ACCOUNT_ADDRESS=
+DEMO_PRIVATE_KEY=

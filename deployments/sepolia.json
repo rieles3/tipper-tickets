@@ -1,0 +1,9 @@
+{
+  "network": "sepolia",
+  "contract_name": "BurnLedger",
+  "contract_address": "0x02bc9f6f8e524f8944293e361cf7bf6321f63558f209bf25f3c3653e50edf65e",
+  "class_hash": "0x06d1252a338cf3b1f6d25c09f58758af693f844580350ba20f89f7cc4650c494",
+  "declare_transaction_hash": "0x05fb8d7b5c01d863033e5f73509a26060b3466eeefb3df5a9258e53f94b46040",
+  "deploy_transaction_hash": "0x06db92e0d8ae9caec39fd5706ac4995c03615397949ed0d0ad5b55ad4da7e573",
+  "source_verification": "Not published to an explorer by this repository release."
+}

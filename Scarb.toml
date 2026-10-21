@@ -1,0 +1,27 @@
+[package]
+name = "tipper_tickets"
+version = "0.1.0"
+edition = "2024_07"
+license = "Apache-2.0"
+description = "Immutable, pre-issued creator coupons and referral claims on Starknet."
+
+[dependencies]
+starknet = "=2.20.0"
+
+[dev-dependencies]
+assert_macros = "=2.20.0"
+snforge_std = "=0.64.1"
+
+[[target.starknet-contract]]
+sierra = true
+casm = true
+
+[scripts]
+test = "snforge test"
+
+[tool.scarb]
+allow-prebuilt-plugins = ["snforge_std"]
+
+[tool.snforge]
+fuzzer_runs = 128
+fuzzer_seed = 20261008

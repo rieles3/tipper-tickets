@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+TIPPER_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+"$TIPPER_ROOT/scripts/tool" scarb fmt --check
+"$TIPPER_ROOT/scripts/tool" scarb build
+"$TIPPER_ROOT/scripts/tool" scarb lint --deny-warnings
+"$TIPPER_ROOT/scripts/tool" snforge test

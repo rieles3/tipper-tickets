@@ -1,0 +1,24 @@
+#!/bin/sh
+set -eu
+TIPPER_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+if [ "$#" -eq 0 ]; then
+    echo 'Uso: scripts/sepolia <comando sncast> [argumentos]. Ver docs/SEPOLIA.md.'
+    exit 2
+fi
+for TIPPER_ARG in "$@"; do
+    case "$TIPPER_ARG" in
+        --network|--network=*|--url|--url=*|-u|-u?*|--account|--account=*|--accounts-file|--accounts-file=*|--keystore|--keystore=*|--profile|--profile=*)
+            echo 'Este wrapper fija Sepolia y su cuenta local; no admite overrides.' >&2
+            exit 2
+            ;;
+    esac
+done
+if [ "$1" = multicall ] && [ "${2:-}" = execute ]; then
+    shift 2
+    exec "$TIPPER_ROOT/scripts/tool" sncast --json --wait \
+      --accounts-file "$TIPPER_ROOT/.secrets/accounts.json" \
+      --account tipper-sepolia multicall execute --network sepolia "$@"
+fi
+exec "$TIPPER_ROOT/scripts/tool" sncast --json --wait \
+  --accounts-file "$TIPPER_ROOT/.secrets/accounts.json" \
+  --account tipper-sepolia "$@" --network sepolia
